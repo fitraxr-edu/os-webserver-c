@@ -1,3 +1,3 @@
-gcc -o server server.c
+gcc -o serverapp serverapp.c lib/server.c
 
-./server
+./serverapp
