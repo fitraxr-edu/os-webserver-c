@@ -111,7 +111,7 @@ void send_response(int client_fd, const char *status, const char *content_type, 
                          "Content-Type: %s\r\n"
                          "Content-Length: %d\r\n"
                          "Connection: close\r\n\r\n"
-                         "%s\n";
+                         "\n";
     send(client_fd, header, strlen(header), 0);
 
     // Membuat header HTTP
