@@ -1,4 +1,4 @@
-#include "lib/server.h"
+#include "lib/Server.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,7 +22,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    printf("Server runnin on localhost:%d", server.port);
+    printf("Server running on localhost:%d\n", server.port);
 
     while (1) {
         client_fd = accept(server.server_fd, (struct sockaddr *)&client_addr, &client_addr_len);

@@ -63,6 +63,7 @@
     "stdio.h": "c",
     "inet.h": "c",
     "clientsocket.h": "c",
-    "fcntl.h": "c"
+    "fcntl.h": "c",
+    "server.h": "c"
   }
 }
