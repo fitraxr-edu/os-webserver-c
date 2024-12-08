@@ -47,3 +47,13 @@ void parse_request_line(char *request_line, char *method, char *URI, char *versi
     strcpy(version, strtok(version, "/"));
     strcpy(version, strtok(NULL, "/"));
 }
+
+HTTPRequest parse_http_request(char *request)
+{
+    HTTPRequest httprequest;
+
+    parse_request(request, httprequest.request_line, httprequest.header, httprequest.body);
+    parse_request_line(request, httprequest.method, httprequest.URI, httprequest.HTTPVersion);
+
+    return httprequest;
+}
