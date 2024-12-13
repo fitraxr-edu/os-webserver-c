@@ -1,6 +1,10 @@
 #ifndef SERVER_H
 #define SERVER_H
 
+#define PORT 65432
+#define BUFFER_SIZE 4096
+#define PROCESS_POOL_SIZE 15
+
 #include <netinet/in.h>
 
 typedef struct Server
