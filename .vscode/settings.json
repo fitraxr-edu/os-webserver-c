@@ -64,6 +64,10 @@
     "inet.h": "c",
     "clientsocket.h": "c",
     "fcntl.h": "c",
-    "server.h": "c"
+    "server.h": "c",
+    "client.h": "c",
+    "httprequest.h": "c",
+    "wait.h": "c",
+    "signal.h": "c"
   }
 }
