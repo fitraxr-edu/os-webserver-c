@@ -2,8 +2,8 @@
 #define SERVER_H
 
 #define PORT 65432
-#define BUFFER_SIZE 4096
-#define PROCESS_POOL_SIZE 15
+#define BUFFER_SIZE 65636
+#define PROCESS_POOL_SIZE 5
 
 #include <netinet/in.h>
 
