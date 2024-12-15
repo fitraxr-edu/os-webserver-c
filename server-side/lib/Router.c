@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "HTTPRequest.h"
 
 // Helper Function
 FILE *open_file(const char *filename, const char *mode)
@@ -78,17 +79,17 @@ void handle_register(int client_fd)
 
 void handle_submission(int client_fd, char *httprequestbody)
 {
-    char *response = 
-        "HTTP/1.1 200 OK\r\n"
-        "Content-Type: text/plain\r\n"
-        "\r\n"
-        "Data received and saved to CSV.";
-    send(client_fd, response, strlen(response), 0);
+    handle_register(client_fd);
 
     FILE *file = open_file("data/data_mahasiswa.csv", "a");
     char name[128], nim[9];
 
-    sscanf(httprequestbody, "nim=%[^&]&name=%s", nim, name);
+    parse_query(httprequestbody, nim, name);
+
+    printf("nim: %s\n", nim);
+    printf("name: %s\n", name);
 
     fprintf(file, "%s,%s\n", nim, name);
+
+    fclose(file);
 }

@@ -2,7 +2,7 @@
 #define HTTPRequest_H
 
 #define REQUEST_LINE_LEN 32
-#define HEADER_LEN 256
+#define HEADER_LEN 1024
 #define BODY_LEN 256
 
 #define METHOD_LEN 8
@@ -26,6 +26,9 @@ typedef struct HTTPRequest
     char URI[URI_LEN];
     char HTTPVersion[HTTPVERSION_LEN];
 } HTTPRequest;
+
+void replace_plus_with_space(char *str);
+void parse_query(const char *query, char *nim, char *name);
 
 void parse_request(const char *request, char *request_line, char *header, char *body);
 void parse_request_line(char *request_line, char *method, char *URI, char *version);

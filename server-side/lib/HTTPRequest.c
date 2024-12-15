@@ -4,6 +4,32 @@
 #include <stdlib.h>
 #include <string.h>
 
+void replace_plus_with_space(char *str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '+') {
+            str[i] = ' '; // Ganti '+' dengan spasi
+        }
+    }
+}
+
+void parse_query(const char *query, char *nim, char *name) {
+    char buffer[1024]; // Buffer sementara untuk memproses data
+    strcpy(buffer, query); // Salin query ke buffer agar tidak mengubah data asli
+
+    char *token = strtok(buffer, "&"); // Pisahkan berdasarkan '&'
+
+    while (token != NULL) {
+        if (strncmp(token, "nim=", 4) == 0) {
+            strncpy(nim, token + 4, 50); // Salin nilai nim
+        } else if (strncmp(token, "name=", 5) == 0) {
+            strncpy(name, token + 5, 100); // Salin nilai name
+        }
+        token = strtok(NULL, "&"); // Lanjut ke token berikutnya
+    }
+
+    replace_plus_with_space(name); // Ganti '+' dengan spasi di name
+}
+
 void parse_request(const char *request, char *request_line, char *header, char *body) 
 {
     // Memisahkan request line (baris pertama)
