@@ -5,6 +5,9 @@
 #define BUFFER_SIZE 8192
 #define PROCESS_POOL_SIZE 5
 
+#include "HTTPRequest.h"
+#include "Router.h"
+
 #include <netinet/in.h>
 
 typedef struct Server
@@ -21,5 +24,9 @@ typedef struct Server
 } Server;
 
 Server server_constructor(int domain, int service, int protocol, int port, int backlog);
+
+void handle_client(int client_fd);
+
+void process_worker(int server_fd);
 
 #endif

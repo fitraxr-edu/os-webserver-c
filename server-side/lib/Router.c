@@ -82,7 +82,7 @@ void handle_submission(int client_fd, char *httprequestbody)
     handle_register(client_fd);
 
     FILE *file = open_file("data/data_mahasiswa.csv", "a");
-    char name[128], nim[9];
+    char name[128], nim[16];
 
     parse_query(httprequestbody, nim, name);
 
