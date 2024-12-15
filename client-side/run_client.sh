@@ -1,3 +1,3 @@
-gcc -o client client.c
+gcc -o clientapp.exe clientapp.c lib/client.c
 
-./client
+./clientapp.exe
